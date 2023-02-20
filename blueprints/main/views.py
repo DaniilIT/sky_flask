@@ -2,7 +2,8 @@ from flask import Blueprint, render_template, request
 from utils import *
 
 
-main_blueprint = Blueprint('main_blueprint', __name__, template_folder='templates')
+main_blueprint = Blueprint('main', __name__, template_folder='templates')
+
 
 @main_blueprint.route('/')
 def index_page():
@@ -13,7 +14,7 @@ def index_page():
 
 
 @main_blueprint.route('/posts/<int:postid>')
-def posts_page(postid):
+def post_by_id_page(postid):
     """ Представление поста по идентификатору
     """
     post = get_posts_by_pk(postid)

@@ -1,9 +1,12 @@
 from flask import Flask
 
 from blueprints.main.views import main_blueprint
+from blueprints.api.views import api_blueprint
+
 
 app = Flask(__name__)
 app.register_blueprint(main_blueprint)
+app.register_blueprint(api_blueprint)
 
 
 @app.errorhandler(404)  # можно вызвать `abort(413)`
