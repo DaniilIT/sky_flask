@@ -17,5 +17,6 @@ ENV/
 .DS_Store
 
 # project
+.pytest_cache/
 data/
 static/img/
