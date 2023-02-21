@@ -1,6 +1,6 @@
 import pytest
-from blueprints.main.dao.posts import Post, PostsDAO
-from blueprints.main.dao.comments import Comment
+from blueprints.main.dao.posts_dao import Post, PostsDAO
+from blueprints.main.dao.comments_dao import Comment
 
 
 @pytest.fixture()

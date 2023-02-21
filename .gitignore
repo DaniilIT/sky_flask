@@ -18,4 +18,3 @@ ENV/
 
 # project
 .pytest_cache/
-data/
