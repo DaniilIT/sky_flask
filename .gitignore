@@ -19,4 +19,3 @@ ENV/
 # project
 .pytest_cache/
 data/
-static/img/

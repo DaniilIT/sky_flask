@@ -4,6 +4,7 @@ from blueprints.main.dao.comments import CommentsDAO
 
 
 POSTS_JSON_PATH = './data/posts.json'
+BOOKMARKS_JSON_PATH = './data/bookmarks.json'
 
 
 class Post:
@@ -30,6 +31,9 @@ class Post:
             'likes_count': post.likes_count,
             'pk': post.pk,
         }
+
+    def __eq__(self, other_post):
+        return self.pk == other_post.pk
 
     def __repr__(self):
         return f'pk: {self.pk}'
@@ -111,3 +115,51 @@ class PostsDAO:
                 query_posts.append(post)
 
         return query_posts
+
+    @staticmethod
+    def get_bookmarks_all() -> list[Post]:
+        """ Возвращает все закладки
+        """
+        bookmarks = []
+
+        with open(BOOKMARKS_JSON_PATH, 'r', encoding='utf-8') as json_file:
+            raw_posts = json.load(json_file)
+
+            for post in raw_posts:
+                bookmarks.append(
+                    Post(
+                        post.get('poster_name'), post.get('poster_avatar'), post.get('pic'), post.get('content'),
+                        post.get('views_count'), post.get('likes_count'), post.get('pk')
+                    )
+                )
+
+        return bookmarks
+
+    @staticmethod
+    def write_bookmarks_all(bookmarks):
+        """ Записывает закладки
+        """
+        raw_posts = []
+        for post in bookmarks:
+            raw_posts.append(Post.get_post_dict(post))
+
+        with open(BOOKMARKS_JSON_PATH, 'w') as json_file:
+            json.dump(raw_posts, json_file, indent=2, ensure_ascii=False)
+
+    def add_bookmarks(self, post: Post):
+        """ Добавить пост в закладку
+        """
+        bookmarks = self.get_bookmarks_all()
+
+        if post not in bookmarks:
+            bookmarks.append(post)
+            self.write_bookmarks_all(bookmarks)
+
+    def remove_bookmarks(self, post: Post):
+        """ Добавить пост в закладку
+        """
+        bookmarks = self.get_bookmarks_all()
+
+        if post in bookmarks:
+            bookmarks.remove(post)
+            self.write_bookmarks_all(bookmarks)
