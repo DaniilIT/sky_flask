@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from blueprints.main.dao.posts_dao import PostsDAO
+from dao.posts_dao import PostsDAO
 from .logger import Logger
 import config
 

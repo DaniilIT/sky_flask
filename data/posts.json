@@ -70,5 +70,21 @@
     "views_count": 141,
     "likes_count": 45,
     "pk": 8
+  },
+  {
+    "poster_name": "None",
+    "poster_avatar": null,
+    "pic": "/uploads/crosstab.png",
+    "content": "django",
+    "views_count": 0,
+    "likes_count": 0
+  },
+  {
+    "poster_name": "None",
+    "poster_avatar": null,
+    "pic": "/uploads/groupby.png",
+    "content": "group",
+    "views_count": 0,
+    "likes_count": 0
   }
 ]

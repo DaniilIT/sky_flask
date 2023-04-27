@@ -1,5 +1,4 @@
-import pytest
-from blueprints.main.dao.comments_dao import Comment
+from dao import Comment
 
 
 class TestBookmarksDAO:

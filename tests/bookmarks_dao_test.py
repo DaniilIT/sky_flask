@@ -1,5 +1,4 @@
-import pytest
-from blueprints.main.dao.post import Post
+from dao.post import Post
 
 
 class TestBookmarksDAO:

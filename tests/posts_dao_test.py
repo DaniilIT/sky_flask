@@ -1,6 +1,6 @@
 import pytest
-from blueprints.main.dao.post import Post
-from blueprints.main.dao.comments_dao import Comment
+from dao.post import Post
+from dao import Comment
 
 
 class TestPostsDAO:

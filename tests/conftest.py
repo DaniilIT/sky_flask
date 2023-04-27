@@ -1,9 +1,9 @@
 import pytest
 import config
 from app import app
-from blueprints.main.dao.posts_dao import PostsDAO
-from blueprints.main.dao.comments_dao import CommentsDAO
-from blueprints.main.dao.bookmarks_dao import BookmarksDAO
+from dao.posts_dao import PostsDAO
+from dao import CommentsDAO
+from dao.bookmarks_dao import BookmarksDAO
 
 
 @pytest.fixture()
